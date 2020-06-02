@@ -1,0 +1,29 @@
+// AIM: PROGRAM SOME PHONES FOR THE WHOLE SIMS FAMILY, STARTING WITH GRANDMA. THE YEAR IS 2010
+  // grandparents just need to make calls --> They want a HomePhone DONE
+  // parents need to make calls, AND TEXT --> It's their money and they want it when they need it!
+  // you and your siblings need to make calls, text, and download apps
+
+
+// CLASS MEMBERS
+  // properties
+
+
+  // methods
+
+
+// GRANDPA 1
+
+
+// GRANDPA 2
+
+
+// GRANDMA 1
+
+
+// GRANDMA 2
+
+
+// PARENT 1 and PARENT 2
+
+
+// YOU AND YOUR 3 SIBLINGS
