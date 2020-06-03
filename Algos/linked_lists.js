@@ -52,16 +52,25 @@ class SLList {
     // Write a method that is given a value, and adds a new node to the end of a SLL
     // where that new node has that value.
     addToBack(value) {
+        // First we need to check if the list is empty
         if(this.isEmpty()){
+            // If it is, just set the head to a new node,
+            // because adding to the back of an empty list
+            // is the same as just setting the head to a node
             this.head = new SLNode(value);
             return this;
         }
+        // OTHERWISE
         else {
+            // Let's designate a runner to start at the head node
             let runner = this.head;
+            // And move it down the list until it reaches the last node
             while(runner.next != null) {
                 runner = runner.next;
             }
 
+            // Once the runner is at the end of the list, we set its .next
+            // to be a new node
             runner.next = new SLNode(value);
             return this;
         }
@@ -70,6 +79,11 @@ class SLList {
 
     // Write a method that prints the contents of a Singly Linked List.
     printList() {
+        // First, let's check if the list is empty
+        if(this.isEmpty()) {
+            console.log("The list is empty!")
+            return;
+        }
         // Let's start a runner at the beginning of the singly linked list itself
         var runner = this.head;
         // This string will be added to as we traverse along the SLL
