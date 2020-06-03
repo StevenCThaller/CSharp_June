@@ -19,15 +19,53 @@ class SLList {
     // Write a method that will create a new node, add it to the front of
     // the singly linked list, and reassign the head to the new node.
     addToFront(value) {
+        // This one is pretty simple! The case for an empty list vs
+        // a non-empty list is exactly the same!
+        
+        // Create the new node
+        let newNode = new SLNode(value);
+        // Then set the new node's .next to the current head.
+        // IF THE LIST IS EMPTY! newNode.next will be null. Which is what it should be
+        // anyway if there's nothing after it.
+        // IF THE LIST IS NOT EMPTY! newNode.next will be the current head of the list,
+        // which is exactly what we want!
+        newNode.next = this.head;
+
+        // Now, we just set the head of the list to be our new node and call it a day!
+        this.head = newNode;
+        return this;
+
 
     }
 
 
 
     // Write a method that will remove the head node from a singly linked list, 
-    // and then reassign the head to the next node.
+    // and then reassign the head to the next node. Return the node that was removed
     removeFromFront() {
+        // We should first check to see if the list is empty, because if it is,
+        // there's nothing to remove!
+        if(this.isEmpty()) {
+            console.log("There's nothing to remove!");
+            return false;
+        }
 
+        // Otherwise, let's hold on to the first node
+        let removed = this.head;
+
+        // now, we need to move the head to the second node
+        this.head = removed.next;
+
+        // And just for funsies, let's clear the previous head's .next so it's a truly standalone node
+        removed.next = null;
+
+        // Finally, let's return the removed node!
+        return removed;
+
+        // NOTE THAT WE DID NOT CHECK TO SEE IF THE NODE IS THE ONLY NODE IN THE LIST!
+        // Similar to the previous algorithm (addToFront), if the original head's .next is null,
+        // and you remove from the front, this.head is moved to null, which is fine! Because removing
+        // from the front of an SLL with only one node is the same as emptying it!!
     }
 
 
