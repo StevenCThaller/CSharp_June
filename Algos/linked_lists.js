@@ -16,6 +16,23 @@ class SLList {
         this.head = null;
     }
 
+    // Write a method that will create a new node, add it to the front of
+    // the singly linked list, and reassign the head to the new node.
+    addToFront(value) {
+
+    }
+
+
+
+    // Write a method that will remove the head node from a singly linked list, 
+    // and then reassign the head to the next node.
+    removeFromFront() {
+
+    }
+
+
+
+
     // Write a method that will return a boolean depending on whether or not the singly
     // linked list is empty or not.
     isEmpty() {
@@ -29,6 +46,7 @@ class SLList {
         if (this.head==null) {
             return true;
         }
+        return false;
     }
 
     // Write a method that is given a value, and adds a new node to the end of a SLL

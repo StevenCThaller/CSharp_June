@@ -27,6 +27,8 @@ namespace OOPIntro
             charlie.Call(gMa);
 
             gMa.Number = "1234567890";
+
+            object[] something = new object[5];
         }
     }
 }
