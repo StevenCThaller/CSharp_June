@@ -16,6 +16,27 @@ class SLList {
         this.head = null;
     }
 
+    // Write a method that will return a boolean based on whether or not
+    // the Singly Linked List contains a node with a given value.
+
+    // EXAMPLE: If the singly linked list is 7 -> 5 -> 9 -> 2 ->
+    // and I call myList.contains(9) it should return true.
+    // If on the same list I call myList.contains(11) it should return false.
+    contains(value) {
+
+    }
+
+
+    // Write a method that will remove the last node in a SLL and return it.
+
+    // EXAMPLE: If the singly linked list is 11 -> 2 -> 7 -> 6 -> 
+    // and I call myList.removeFromBack() the list should now be
+    // 11 -> 2 -> 7 -> 
+    removeFromback() {
+
+    }
+
+
     // Write a method that will create a new node, add it to the front of
     // the singly linked list, and reassign the head to the new node.
     addToFront(value) {
