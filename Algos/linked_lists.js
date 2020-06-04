@@ -23,7 +23,26 @@ class SLList {
     // and I call myList.contains(9) it should return true.
     // If on the same list I call myList.contains(11) it should return false.
     contains(value) {
+        // Check if the list is empty. Because an empty list would obviously not contain anything!
+        if(this.isEmpty()) {
+            return false;
+        }
+        // Let's start our runner at the head of the list
+        let runner = this.head;
 
+        // And move the runner down the list
+        while(runner != null) {
+            // At each node, check to see if the value matches the one being searched for
+            if(runner.value == value) {
+                // If they match, return true!
+                return true;
+            }
+            // If you haven't found a match, move it on down.
+            runner = runner.next;
+        }
+        // If we reached the end of the list and found no matches, the list must not
+        // contain the value, so return false!
+        return false;
     }
 
 
@@ -33,6 +52,40 @@ class SLList {
     // and I call myList.removeFromBack() the list should now be
     // 11 -> 2 -> 7 -> 
     removeFromback() {
+        // If the list is empty, there's nothing to remove!
+        if(this.isEmpty()) {
+            console.log("The list is already empty!")
+            return this;
+        }
+        // Otherwise, let's check to see if the list has only 1 element!
+        else if(this.head.next == null) {
+            // If the list only has 1 element, let's hold onto the node
+            let temp = this.head;
+            // Set the head of the list to null (emptying the list)
+            this.head = null;
+            // and return what was previously the only node in the list
+            return temp;
+        }
+        else {
+            // If we made it here, the list must have multiple nodes
+
+            // So let's set a runner and a walker, so we can keep track of the previous node.
+            let runner = this.head.next;
+            let walker = this.head;
+            // We want to progress both walker and runner down the list until the runner is the LAST node
+            while(runner.next != null) {
+                // Setting walker to runner before moving runner to runner's next
+                // makes it so once runner is the LAST node, walker will be the SECOND TO LAST node
+                walker = runner;
+                runner = runner.next;
+            }
+            // Now that walker is the SECOND TO LAST node, setting its .next to null will remove the LAST node
+            // from the SLL
+            walker.next = null;
+
+            // and return the node we just chopped off!
+            return runner;
+        }
 
     }
 
@@ -163,12 +216,3 @@ class SLList {
         console.log(string);
     }
 }
-
-
-var myList = new SLList();
-
-myList.head = new SLNode(5);
-myList.head.next = new SLNode(6);
-myList.head.next.next = new SLNode(7);
-
-myList.printList();
