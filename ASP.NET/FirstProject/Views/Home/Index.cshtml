@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello, welcome to Dunder's website!</h1>
+    <h2>A message to you from the great Dunder: @ViewBag.Elephant</h2>
+    <a href="/page2">Go to the Other page</a>
+    <a href="/redirect">Go to the Other page, but via a redirect for some reason apparently</a>
+
+    @{
+        int x = ViewBag.NumberOne + ViewBag.NumberTwo;
+    }
+    <p>@x</p>
+
+    @{
+        List<string> mystrings = new List<string>{"Hello", "There", "General", "Kenobi"};
+    }
+
+    @* 
+    {% for word in mystrings %}
+        <p>{{word}}</p>
+    {% endfor %} 
+    *@
+
+    @foreach(string word in mystrings)
+    {
+        <p>@word</p>
+    }
+
+
+
+    @* 
+    <ul>
+        {% for word in mystrings %}
+
+            {% if word == "Kenobi" %}
+                <li>{{word}}</li>
+            {% else %}
+                <li>Go away you loon</li>
+            {% endif %}
+        {% endfor %} 
+    </ul>
+    *@
+    <ul>
+        @foreach(string word in mystrings)
+        {
+            @if(word != "Kenobi")
+            {
+                <li>@word</li>
+            }
+            else
+            {
+                <li>Go away you loon</li>
+            }
+        }
+    </ul>
+
+</body>
+</html>

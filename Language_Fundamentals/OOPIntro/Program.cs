@@ -5,6 +5,10 @@ namespace OOPIntro
 
     class Program
     {
+        class Test : Phone
+        {
+            
+        }
         static void Main(string[] args)
         {
             HomePhone gMa = new HomePhone("5551234567", true);
