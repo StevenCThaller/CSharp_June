@@ -16,6 +16,20 @@ class SLList {
         this.head = null;
     }
 
+    // Write a method that takes a value, and will remove the first instance of a 
+    // node with that value in the singly linked list.
+
+    // EXAMPLE: with a list of 10 -> 7 -> 3 -> 7 -> 6 -> 
+    // If you call myList.removeNode(7) the list will become
+    // 10 -> 3 -> 7 -> 6 ->
+
+    // NOTE: Removing a node is as simple as redirecting the previous node's
+    // .next to the removed node's .next
+    removeNode(value){
+
+    }
+
+
     // Write a method that will return a boolean based on whether or not
     // the Singly Linked List contains a node with a given value.
 
