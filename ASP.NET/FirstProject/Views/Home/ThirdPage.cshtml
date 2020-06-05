@@ -1,4 +1,5 @@
-@model int[]
+@using FirstProject.Models
+@model User
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
-        @foreach(int number in Model)
-        {
-            <li>@number</li>
-        }
-    </ul>
+    <p>First Name: @Model.FirstName</p>
+    <p>Last Name: @Model.LastName</p>
 </body>
 </html>

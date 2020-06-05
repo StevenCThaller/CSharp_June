@@ -1,4 +1,5 @@
-@model int[]
+@using FirstProject.Models
+@model List<User>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +9,9 @@
 </head>
 <body>
     <ul>
-        @foreach(int number in Model)
+        @foreach(var user in Model)
         {
-            <li>@number</li>
+            <li>@user.FirstName @user.LastName</li>
         }
     </ul>
 </body>

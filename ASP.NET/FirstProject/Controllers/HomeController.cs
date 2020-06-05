@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using FirstProject.Models;
 
 namespace FirstProject.Controllers
 {
@@ -9,28 +10,51 @@ namespace FirstProject.Controllers
         [HttpGet("")]
         public ViewResult Index()
         {
-            int num1 = 10;
-            int num2 = 4;
+            string message = "Lorem ipsum blah blah blah blah blah";
 
-
-            ViewBag.Elephant = "hello there!";
-            ViewBag.NumberOne = num1;
-            ViewBag.NumberTwo = num2;
-
-
-            return View("Index");
+            return View("Index", message);
         }
 
         [HttpGet("page2")]
         public ViewResult OtherPage()
         {
-            return View();
+            int[] myArray = new int[]{1,2,3,4,5};
+
+            return View("OtherPage", myArray);
         }
 
-        [HttpGet("redirect")]
-        public RedirectResult Redirecting()
+        [HttpGet("page3")]
+        public ViewResult ThirdPage()
         {
-            return Redirect("/page2");
+            User ToDisplay = new User("Billy", "Gates");
+
+            return View(ToDisplay);
+        }
+
+        [HttpGet("page4")]
+        public ViewResult FourthPage()
+        {
+            List<User> ListOfUsers = new List<User>
+            {
+                new User("Billy", "Gates"),
+                new User("Jeffington", "Bezos"),
+                new User("Clyde", "Harrison"),
+                new User("William", "Shatner")
+            };
+
+            return View(ListOfUsers);   
+        }
+
+        [HttpGet("bonusround")]
+        public ViewResult BonusRound()
+        {
+            User nommer = new User("Nom", "Nommingtons");
+            Pancake panqueque = new Pancake("Panqueue", true);
+
+            BonusRoundWrapper ToDisplay = new BonusRoundWrapper();
+            ToDisplay.User = nommer;
+            ToDisplay.Pancake = panqueque;
+            return View(ToDisplay);
         }
     }
 }
