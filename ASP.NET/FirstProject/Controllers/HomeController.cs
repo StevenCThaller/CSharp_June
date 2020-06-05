@@ -56,5 +56,16 @@ namespace FirstProject.Controllers
             ToDisplay.Pancake = panqueque;
             return View(ToDisplay);
         }
+
+
+
+        [HttpPost("submitted")]
+        public ViewResult FormSubmit(string Name, int Age)
+        {
+            ViewBag.Name = Name;
+            ViewBag.Age = Age;
+
+            return View();
+        }
     }
 }
