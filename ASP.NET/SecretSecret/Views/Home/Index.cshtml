@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to My Secret Shop!</h1>
+    <h3>@ViewBag.Error</h3>
+    <a href="/whatsthecode">Remind me what secret I told you</a>
+    <form action="/tellsecret" method="POST">
+        <label for="Secret">What's your secret? </label>
+        <input type="text" name="Secret">
+        <br>
+        <label for="SecretNumber">Now give me a secret number so I can keep it even more secret!</label>
+        <input type="number" name="SecretNumber">
+        <br>
+        <input type="submit" value="Thanks for your secret!">
+    </form>
+</body>
+</html>
