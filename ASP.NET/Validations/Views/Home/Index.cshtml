@@ -1,0 +1,32 @@
+@model Person
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+    <form asp-action="Results" asp-controller="Home" method="POST">
+        <span class="text-danger" asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
+        <br>
+        <span class="text-danger" asp-validation-for="Age"></span>
+        <label asp-for="Age"></label>
+        <input asp-for="Age">
+        <br>
+        <span class="text-danger" asp-validation-for="FavoriteColor"></span>
+        <label asp-for="FavoriteColor"></label>
+        <select asp-for="FavoriteColor">
+            <option value="Red">Red</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Blue">Blue</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

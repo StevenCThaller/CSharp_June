@@ -16,6 +16,35 @@ class SLList {
         this.head = null;
     }
 
+    // Write a method that will return the second to last node in the singly linked list.
+
+    //EXAMPLE: myList = 7 -> 5 -> 3 -> 10 -> 1 -> 
+    // calling myList.secondToLast() would return the 10 -> node
+    secondToLast(){
+
+    }
+
+
+    // Write a method that takes a singly linked list as a parameter, and concatenates
+    // it to the current list.
+
+    // EXAMPLE: If myList = 7 -> 5 -> 3 -> and otherList is 10 -> 1 -> 8 ->
+    // and you call myList.concat(otherList) the outcome would be that myList is
+    // now 7 -> 5 -> 3 -> 10 -> 1 -> 8 ->
+    concat(list){
+
+    }
+
+
+    // Write a method that splits a singly linked list in 2 on a given value.
+
+    // EXAMPLE: if myList = 10 -> 7 -> 5 -> 3 -> 1 -> and you call
+    // myList.splitOnVal(5) myList will be 10 -> 7 -> and the method would return a new 
+    // SLL of 5 -> 3 -> 1 -> 
+    splitOnVal(value){
+
+    }
+
     // Write a method that takes a value, and will remove the first instance of a 
     // node with that value in the singly linked list.
 
@@ -26,6 +55,26 @@ class SLList {
     // NOTE: Removing a node is as simple as redirecting the previous node's
     // .next to the removed node's .next
     removeNode(value){
+        if(this.isEmpty()) {
+            console.log("The list is empty.");
+        }
+        else if(this.head.value == value) {
+            this.head = this.head.next;
+        }
+        else {
+            let walker = this.head;
+            let runner = this.head.next;
+            while(runner != null) {
+                if(runner.value == value) {
+                    walker.next = runner.next;
+                    return this;
+                }
+                walker = runner;
+                runner = runner.next;
+            }
+            console.log("There was no node with that value.");
+        }
+        return this;
 
     }
 
@@ -228,5 +277,6 @@ class SLList {
         
         // Once we've finished moving through the entire list, we want to print the string
         console.log(string);
+        return this;
     }
 }
