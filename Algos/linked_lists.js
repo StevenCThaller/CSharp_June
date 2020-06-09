@@ -383,28 +383,40 @@ class Stack {
     // Write a method to push a value into our stack using the methods we've built
     // in our singly linked list class
     push(value) {
-
+        this.data.addToFront(value);
+        return this;
     }
 
     // Write a method that will pop a value out of our stack using the methods
     // we've built in our singly linked list class
     pop() {
-
+        return this.removeFromFront();
     }
 
     // Write a method that will return the value of the node on the top of the stack
     peek() {
-
+        if(this.data.isEmpty()) {
+            console.log("This stack is empty");
+            return null;
+        }
+        return this.data.head;
     }
 
     // Write a method that will return a boolean based on whether or not the stack
     // is empty using the methods from our singly linked list class
     isEmpty() {
-
+        return this.data.isEmpty();
     }
 
     // Write a method that will return how many elements are in our stack.
     size() {
-
+        let runner = this.data.head;
+        let count = 0;
+        while(runner != null) {
+            runner = runner.next;
+            count++;
+        }
+        return count;
     }
 }
+
