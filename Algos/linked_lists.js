@@ -10,6 +10,7 @@ class SLNode {
     }
 }
 
+// This is the class for our Singly Linked List
 class SLList {
     constructor() {
         // This is the beginning of the singly linked list
@@ -21,7 +22,33 @@ class SLList {
     //EXAMPLE: myList = 7 -> 5 -> 3 -> 10 -> 1 -> 
     // calling myList.secondToLast() would return the 10 -> node
     secondToLast(){
+        // First 2 things we want to do is check to see if the list
+        // is empty or if it only has one element.
 
+        // Empty check:
+        if(this.isEmpty()) {
+            console.log("List is empty.");
+            return false;
+        }
+        // One element check:
+        else if(this.head.next == null) {
+            console.log("There is only one node in this list.");
+            return false;
+        }
+        else {
+            // Set a walker and a runner
+            let walker = this.head;
+            let runner = walker.next;
+            // We want to move both down the line until the runner is at the last
+            // node. If the runner is at the last node, the walker will be at the second
+            // to last node!
+            while(runner.next != null) {
+                walker = runner;
+                runner = runner.next;
+            }
+            
+            return walker;
+        }
     }
 
 
@@ -32,6 +59,27 @@ class SLList {
     // and you call myList.concat(otherList) the outcome would be that myList is
     // now 7 -> 5 -> 3 -> 10 -> 1 -> 8 ->
     concat(list){
+        // We should first check to see if this list is empty.
+        // If it is, we just set the head to the second list's head.
+        if(this.isEmpty()) {
+            this.head = list.head;
+            // And let's clear the second list just cuz.
+            list.head = null;
+            return this;
+        }
+        // Let's start a runner
+        let runner = this.head;
+        // And move the runner to the end of the list
+        while(runner.next != null){
+            runner = runner.next;
+        }
+        // Once the runner is at the end of the list, set its .next
+        // to the head of the second list.
+        runner.next = list.head;
+        // And now let's clear list 2.
+        list.head = null;
+        // And return our newly increased list!
+        return this;
 
     }
 
@@ -42,8 +90,52 @@ class SLList {
     // myList.splitOnVal(5) myList will be 10 -> 7 -> and the method would return a new 
     // SLL of 5 -> 3 -> 1 -> 
     splitOnVal(value){
+        // As usual, let's check to see if the list is empty.
+        if(this.isEmpty()) {
+            console.log("There's no list to split.");
+            return false;
+        }
+        // Now we need to check if the head's value is the one we're trying to split from
+        else if(this.head.value == value) {
+            // If it is, then basically we clear the current list and return a new list
+            // that contains everything that was in the current list.
 
+            // Create the new list
+            let newList = new SLList();
+            // Set the new list's head to the current head (since it's the value we're looking for)
+            newList.head = this.head;
+            // Now, clear the current list
+            this.head = null;
+            // And return the new list.
+            return newList;
+        }
+        else {
+
+            // Let's start a runner
+            let runner = this.head;
+            // We want to keep moving the runner down the line 
+            while(runner.next != null) {
+                // Let's check to see if the next node's value is the one we're trying to
+                // split at. If it is, we'll create our new list and call it a day!
+                if(runner.next.value == value){
+                    // Create the new list
+                    let newList = new SLList();
+                    // Set its head to the next node;
+                    newList.head = runner.next;
+                    // Set runner's .next to null to end the current list
+                    runner.next = null;
+                    // and return the new list!
+                    return newList;
+                }
+                // Otherwise, move runner down the line.
+                runner = runner.next;
+            }
+            // If we've gotten this far, the value isn't in the list.
+            console.log("Could not find a node with that value.")
+            return false;
+        }
     }
+
 
     // Write a method that takes a value, and will remove the first instance of a 
     // node with that value in the singly linked list.
@@ -278,5 +370,41 @@ class SLList {
         // Once we've finished moving through the entire list, we want to print the string
         console.log(string);
         return this;
+    }
+}
+
+// This is the class for a Stack where everything is built using methods
+// from the SLL class we've been working with
+class Stack {
+    constructor() {
+        this.data = new SLList();
+    }
+
+    // Write a method to push a value into our stack using the methods we've built
+    // in our singly linked list class
+    push(value) {
+
+    }
+
+    // Write a method that will pop a value out of our stack using the methods
+    // we've built in our singly linked list class
+    pop() {
+
+    }
+
+    // Write a method that will return the value of the node on the top of the stack
+    peek() {
+
+    }
+
+    // Write a method that will return a boolean based on whether or not the stack
+    // is empty using the methods from our singly linked list class
+    isEmpty() {
+
+    }
+
+    // Write a method that will return how many elements are in our stack.
+    size() {
+
     }
 }
