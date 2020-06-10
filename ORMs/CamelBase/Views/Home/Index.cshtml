@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Camel
+
+<div class="row text-center">
+    <h1>Welcome to the Camel Base</h1>
+</div>
+<div class="row">
+    <a href="/camels/all">View All Camels</a>
+</div>
+<div class="row">
+    <form class="col-sm-8" asp-action="CreateCamel" asp-controller="Home" method="POST">
+        <div class="form-group row">
+            <span class="col-sm-12 text-danger" asp-validation-for="Name"></span>
+            <label class="col-sm-4">Name: </label>
+            <input asp-for="Name" class="col-sm-8">
+        </div>
+        <div class="form-group row">
+            <span class="col-sm-12 text-danger" asp-validation-for="Age"></span>
+            <label class="col-sm-4">Age: </label>
+            <input asp-for="Age" class="col-sm-8">
+        </div>
+        <div class="form-group row">
+            <span class="col-sm-12 text-danger" asp-validation-for="Humps"></span>
+            <label class="col-sm-4">Humps: </label>
+            <input asp-for="Humps" class="col-sm-8">
+        </div>
+        <div class="form-group row">
+            <span class="col-sm-12 text-danger" asp-validation-for="ImageUrl"></span>
+            <label class="col-sm-4">ImageUrl: </label>
+            <input asp-for="ImageUrl" class="col-sm-8">
+        </div>
+        <div class="form-group row">
+            <input type="submit" class="col-sm-4 btn btn-primary" value="Camel!">
+        </div>
+    </form>
+</div>
+

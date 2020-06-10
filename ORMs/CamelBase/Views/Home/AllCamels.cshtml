@@ -1,0 +1,36 @@
+@model Camel[]
+<div class="row">
+    <h1>All The Camels!</h1>
+</div>
+<div class="row">
+    <a href="/">Go Home</a>
+</div>
+<div class="row">
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Humps</th>
+            <th>Pic</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            @foreach(Camel item in Model)
+            {
+                <tr>
+                    <td>@item.CamelId</td>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Humps</td>
+                    <td>
+                        <img class="camel_pic" src="@item.ImageUrl" alt="Picture of @item.Name">
+                    </td>
+                    <td>
+                        <a href="/camels/delete/@item.CamelId">Delete</a> | <a href="/camels/edit/@item.CamelId">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -420,8 +420,8 @@ class Stack {
     }
 }
 
-// This is the lcass for a Queue where everything is built using methods 
-// from the SLL class we've been wroking with
+// This is the class for a Queue where everything is built using methods 
+// from the SLL class we've been working with
 class Queue {
     constructor(){
         this.data = new SLList();
@@ -430,31 +430,39 @@ class Queue {
     // Write a method that adds to the queue using the methods built already
     // in the SLList class
     enqueue(value) {
-
+        return this.data.addToBack(value);
     }
 
 
     // Write a method that removes from the queue using the methods built already 
     // in the SLList class
     dequeue() {
-
+        return this.data.removeFromFront();
     }
 
     // Write a method that returns the node at the front of the queue using 
     // what we know about Singly Linked Lists
     front() {
-
+        if(this.isEmpty()){
+            console.log("Queue is empty");
+            return null;
+        }
+        return this.head;
     }
 
     // This one should be self explanatory
     isEmpty() {
-
+        return this.data.isEmpty();
     }
 
     // Write a method that returns the number of items in our queue
     size() {
-        
+        let count = 0;
+        let runner = this.data.head;
+        while(runner != null) {
+            runner = runner.next;
+            count++;
+        }
+        return count;
     }
-
-
 }
