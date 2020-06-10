@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model User
+<h1>You can't tell me what to do, I'm the Cookie Monster!</h1>
+
+<form asp-action="SubmitForm" asp-controller="Home" method="POST">
+    <div class="form-group row">
+        <label class="col-sm-4">First Name: </label>
+        <input class="col-sm-8" asp-for="FirstName">
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-4">Last Name: </label>
+        <input asp-for="LastName" class="col-sm-8">
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-4">Age: </label>
+        <input asp-for="Age" class="col-sm-8">
+    </div>
+    <div class="form-group row">
+        <input type="submit" class="col-sm-4 btn btn-primary" value="Submit">
+    </div>
+
+</form>
