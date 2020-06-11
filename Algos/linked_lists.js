@@ -390,7 +390,7 @@ class Stack {
     // Write a method that will pop a value out of our stack using the methods
     // we've built in our singly linked list class
     pop() {
-        return this.removeFromFront();
+        return this.data.removeFromFront();
     }
 
     // Write a method that will return the value of the node on the top of the stack
@@ -480,12 +480,28 @@ class QueueStack {
     // Using the methods we built into the stack class, write a method that
     // adds a new node to the queue with the passed in value
     enqueue(value){
+        // Basically, the goal here is to, one node at a time,
+        // emtpy stack 1 into stack 2.
+        while(!this.stack1.isEmpty())
+            this.stack2.push(this.stack1.pop().value)
 
+        // Then, push the new value into stack 1, putting it at the bottom
+        // (i.e. adding it to the back of the queue)
+        this.stack1.push(value);
+        
+        // Then empty stack 2 back into stack 1 node by node
+        while(!this.stack2.isEmpty())
+            this.stack1.push(this.stack2.pop().value);
+            
+        // Finally, return our frankenstack
+        return this;
     }
 
     // Using the methods we built into the stack class, write a method that
     // will remove a node from the queue
     dequeue(){
-
+        // Dequeue is super simple. Removing from a queue is functionally the same
+        // as removing from a stack.
+        return this.stack1.pop();
     }
 }
