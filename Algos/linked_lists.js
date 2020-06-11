@@ -466,3 +466,26 @@ class Queue {
         return count;
     }
 }
+
+
+// This is the class for a Stack made out of two Queues.
+class QueueStack {
+    constructor(){
+        // Basically, stack 1 is going to be where all the data actually resides
+        this.stack1 = new Stack();
+        // Stack 2 is just going to be used when we need it to shift things around.
+        this.stack2 = new Stack();
+    }
+
+    // Using the methods we built into the stack class, write a method that
+    // adds a new node to the queue with the passed in value
+    enqueue(value){
+
+    }
+
+    // Using the methods we built into the stack class, write a method that
+    // will remove a node from the queue
+    dequeue(){
+
+    }
+}
