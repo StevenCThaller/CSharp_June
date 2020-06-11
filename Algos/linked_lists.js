@@ -468,7 +468,7 @@ class Queue {
 }
 
 
-// This is the class for a Stack made out of two Queues.
+// This is the class for a Queue from two stacks.
 class QueueStack {
     constructor(){
         // Basically, stack 1 is going to be where all the data actually resides
