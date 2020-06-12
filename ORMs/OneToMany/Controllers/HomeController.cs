@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity; // This contains our password hasher
 using OneToMany.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace OneToMany.Controllers
@@ -119,11 +120,43 @@ namespace OneToMany.Controllers
                 return RedirectToAction("RegisterForm");
             }
 
-            ViewBag.LoggedKiller = dbContext.Killers.FirstOrDefault(k => k.KillerId == (int)LoggedKiller);
+            ViewBag.LoggedKiller = dbContext.Killers
+                .Include(k => k.ThisKillersVictims)
+                .FirstOrDefault(k => k.KillerId == (int)LoggedKiller);
 
+            ViewBag.AllKillers = dbContext.Killers
+                .Include(k => k.ThisKillersVictims)
+                .ToList();
+
+            ViewBag.AllVictims = dbContext.Victims
+                .Include(v => v.Murderer)
+                .ToList();
+            
 
 
             return View("Dashboard");
+        }
+
+        [HttpPost("victim/new")]
+        public IActionResult NewVictim(Victim FromForm)
+        {
+            int? LoggedKiller = HttpContext.Session.GetInt32("KillerId");
+            if(LoggedKiller == null)
+            {
+                return RedirectToAction("RegisterForm");
+            }
+
+            if(ModelState.IsValid)
+            {
+                FromForm.KillerId = (int)LoggedKiller;
+                dbContext.Victims.Add(FromForm);
+                dbContext.SaveChanges();
+                return RedirectToAction("Dashboard");
+            }
+            else
+            {
+                return Dashboard();
+            }
         }
     }
 }
