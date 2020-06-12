@@ -1,0 +1,37 @@
+@model LogKiller
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Back to Killin!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <p class="col-sm-12 text-center"><a href="/">Register</a> | Log In</p>
+        </div>
+        <div class="row">
+            <h1 class="col-sm-12 text-center">Log In</h1>
+        </div>
+        <div class="row">
+            <form asp-action="Login" asp-controller="Home" class="col-sm-8 offset-sm-2" method="post">
+                <div class="form-group row">
+                    <span class="col-sm-12 text-danger" asp-validation-for="LogAlias"></span>
+                    <label asp-for="LogAlias" class="col-sm-4"></label>
+                    <input asp-for="LogAlias" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <span class="col-sm-12 text-danger" asp-validation-for="LogPass"></span>
+                    <label asp-for="LogPass" class="col-sm-4"></label>
+                    <input asp-for="LogPass" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <input type="submit" value="Get Back to Killin'!" class="col-sm-4 offset-sm-4 btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

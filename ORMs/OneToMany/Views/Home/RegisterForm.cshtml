@@ -1,0 +1,57 @@
+@model Killer
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Killerbase</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <p class="col-sm-12 text-center">Register | <a href="/loginform">Log In</a></p>
+        </div>
+        <div class="row">
+            <h1 class="col-sm-12 text-center">Please Register!</h1>
+        </div>
+        <div class="row">
+            <form class="col-sm-8 offset-sm-2" asp-action="Register" asp-controller="Home" method="post">
+                <div class="form-group row">
+                    <span class="col-sm-12 text-danger" asp-validation-for="FirstName"></span>
+                    <label asp-for="FirstName" class="col-sm-4"></label>
+                    <input asp-for="FirstName" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <span class="col-sm-12 text-danger" asp-validation-for="LastName"></span>
+                    <label asp-for="LastName" class="col-sm-4"></label>
+                    <input asp-for="LastName" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <span class="col-sm-12 text-danger" asp-validation-for="Alias"></span>
+                    <label asp-for="Alias" class="col-sm-4"></label>
+                    <input asp-for="Alias" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <span class="col-sm-12 text-danger" asp-validation-for="PreferredWeapon"></span>
+                    <label asp-for="PreferredWeapon" class="col-sm-4"></label>
+                    <input asp-for="PreferredWeapon" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <span class="col-sm-12 text-danger" asp-validation-for="Password"></span>
+                    <label asp-for="Password" class="col-sm-4"></label>
+                    <input asp-for="Password" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <span class="col-sm-12 text-danger" asp-validation-for="Confirm"></span>
+                    <label asp-for="Confirm" class="col-sm-4"></label>
+                    <input asp-for="Confirm" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <input type="submit" value="Here we go Killin Again!" class="col-sm-4 offset-sm-4 btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

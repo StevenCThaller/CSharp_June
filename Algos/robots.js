@@ -23,9 +23,9 @@ moveLeft(){} -> Moves the robot to the left one unit of distance in one unit of 
 moveRight(){} -> Moves the robot to the right one unit of distance in one unit of time.
 wait(){} -> The robot stays in place for one unit of time.
 parachuteCheck(){} -> Returns a boolean for whether or not the robot is currently on top of a parachute. Takes 
-                    one unit of time.
+.                     one unit of time.
 robotCheck(){} -> Returns a boolean for whether or not the robot has found another robot. Takes one unit 
-                    of time.
+.                 of time.
 
 
 A piece of clarification!!
@@ -39,3 +39,79 @@ Both robots will move left.
 SO!!! The goal is to write a program that GUARANTEES (this assumes the robots have an infinite power source)
 that they will find each other.
 */
+function moveLeft(){
+    //Move left 1 unit of distance in 1 unit of time.
+}
+
+function moveRight(){
+    //Move right 1 unit of distance in 1 unit of time.
+}
+
+function wait(){
+    //Stay in place for 1 unit of time.
+}
+
+function parachuteCheck(){
+    //Check if on a parachute and return boolean based on results
+    return true;
+}
+
+function robotCheck(){
+    //Check if you've met the other robot and return boolean based on results.
+}
+
+function robotOscillate(){
+    moveLeft();
+    let steps = 2;
+    let stop = false;
+    let chutes = 0;
+    while(true){
+        chutes = 0;
+        for(let i = 0; i < steps; i++){
+            moveRight();
+            if(robotCheck())
+                return true;
+            if(parachuteCheck())
+                chutes++;
+            if(chutes > 1){
+                stop=true;
+                break;
+            }
+        }
+        if(stop)
+            break;
+        setps++;
+        chutes = 0;
+        for(let i = 0; i < steps; i++){
+            moveLeft();
+            if(robotCheck())
+                return true;
+            if(parachuteCheck())
+                chutes++;
+            if(chutes > 1){
+                stop = true;
+                break;
+            }
+        }
+    }
+    while(!robotCheck())
+        wait();
+    return true;
+}
+
+function robotCatchup(){
+    moveLeft();
+    while(!parachuteCheck()){
+        moveLeft();             // -> This whole chunk of code takes 3 units of time and moves a robot to the left 1 unit of distance
+        wait();
+    }
+
+    //If we've gotten out here, the robot has found another parachute!
+    // So we want to move left twice as fast!
+    while(!robotCheck()){
+        moveLeft();             // -> This whole chunk of code takes 3 units of time and moves a robot to the left 2 units of distance
+        moveLeft();
+    }
+
+    return "Sweet, sweet, victory";
+}
