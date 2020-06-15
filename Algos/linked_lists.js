@@ -10,6 +10,7 @@ class SLNode {
     }
 }
 
+
 // This is the class for our Singly Linked List
 class SLList {
     constructor() {
@@ -24,7 +25,34 @@ class SLList {
     // I STRONGLY encourage attempting to use recursion for this method. If you 
     // choose not to, this task will require three pointers.
     reverse(){
+        if(this.isEmpty()){
+            console.log("Nothing to reverse");
+            return this;
+        }
+        let walker = null;
+        let runner = this.head;
+        let next = runner.next;
+        while(runner != null) {
+            runner.next = walker;
+            walker = runner;
+            runner = next;
+            if(runner != null)
+                next = runner.next;
+        }
+        this.head = walker;
+        return this;
+    }
 
+
+    // Recursive solution!
+    rReverse(runner = this.head, prev = null){
+        if(runner == null){
+            this.head = prev;
+            return;
+        }
+        this.rReverse(runner.next, runner);
+        runner.next = prev;
+        return;
     }
 
     // Write a method that will return the second to last node in the singly linked list.
@@ -429,6 +457,7 @@ class Stack {
         return count;
     }
 }
+
 
 // This is the class for a Queue where everything is built using methods 
 // from the SLL class we've been working with
