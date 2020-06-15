@@ -1,0 +1,46 @@
+@model Hero
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Hero</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="col-sm-12 text-center">
+                Add a New Hero!
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 offset-sm-4 text-center">
+                <a href="/">Go Home</a>
+            </div>
+        </div>
+        <div class="row">
+            <form class="col-sm-8 offset-sm-2" asp-action="CreateHero" asp-controller="Home" method="POST">
+                <div class="form-group row">
+                    <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="Alias"></span>
+                    <label asp-for="Alias" class="col-sm-4"></label>
+                    <input asp-for="Alias" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="FirstName"></span>
+                    <label asp-for="FirstName" class="col-sm-4"></label>
+                    <input asp-for="FirstName" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="LastName"></span>
+                    <label asp-for="LastName" class="col-sm-4"></label>
+                    <input asp-for="LastName" class="col-sm-8 form-control">
+                </div>
+                <div class="form-group row">
+                    <input type="submit" value="Submit!" class="col-sm-4 offset-sm-4 btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
