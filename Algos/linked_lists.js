@@ -17,6 +17,16 @@ class SLList {
         this.head = null;
     }
 
+    // Write a method that will reverse the singly linked list.
+    // Note that this will entail reversing the pointers of each node to its
+    // previous node, and setting what WAS the last node to be the new head.
+
+    // I STRONGLY encourage attempting to use recursion for this method. If you 
+    // choose not to, this task will require three pointers.
+    reverse(){
+
+    }
+
     // Write a method that will return the second to last node in the singly linked list.
 
     //EXAMPLE: myList = 7 -> 5 -> 3 -> 10 -> 1 -> 
