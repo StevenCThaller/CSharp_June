@@ -25,6 +25,11 @@ class SLList {
     // "On your left!"
     hasLoop() {
 
+        while(runner.next != null) {
+            runner = runner.next;
+        }
+
+        return false;
     }
 
     // Write a method that will reverse the singly linked list.
@@ -553,3 +558,12 @@ class QueueStack {
         return this.stack1.pop();
     }
 }
+
+
+let myList = new SLList();
+
+myList.addToBack(5).addToBack(4).addToBack(3).addToBack(2).addToBack(1);
+
+myList.head.next.next.next.next.next = myList.head.next.next;
+
+myList.printList();

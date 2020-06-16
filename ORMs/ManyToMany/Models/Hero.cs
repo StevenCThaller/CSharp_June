@@ -24,6 +24,7 @@ namespace ManyToMany.Models
         [Display(Name="Last Name: ")]
         public string LastName { get; set; }
 
+
         // Navigation Property for Many To Many
         public List<HeroOnTeam> TeamsPartOf { get; set; }
 
