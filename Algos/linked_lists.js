@@ -18,6 +18,15 @@ class SLList {
         this.head = null;
     }
 
+    // Write a method that will return a boolean based on whether
+    // or not the singly linked list has a loop.
+    
+    // HINT: Captain America, The Winter Soldier
+    // "On your left!"
+    hasLoop() {
+
+    }
+
     // Write a method that will reverse the singly linked list.
     // Note that this will entail reversing the pointers of each node to its
     // previous node, and setting what WAS the last node to be the new head.
