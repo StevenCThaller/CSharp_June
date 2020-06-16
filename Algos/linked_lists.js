@@ -24,11 +24,27 @@ class SLList {
     // HINT: Captain America, The Winter Soldier
     // "On your left!"
     hasLoop() {
-
-        while(runner.next != null) {
-            runner = runner.next;
+        // First, check to see if the list is empty, or only 1 element.
+        if(this.isEmpty() || this.head.next == null){
+            return false;
         }
+        // Set our walker to the head node, and runner to the 2nd node
+        let walker = this.head;
+        let runner = walker.next;
 
+        // We're going to move walker by 1 node, and runner by 2 node forever (???)
+        while(runner != null && runner.next != null) {
+            // Check to see if walker and runner have met
+            if(walker == runner) {
+                // If so, we have a loop!
+                return true;
+            }
+            // Move walker by 1 node
+            walker = walker.next;
+            // Move runner by 2 nodes
+            runner = runner.next.next;
+        }
+        // If we broke out of the while loop, we don't have 
         return false;
     }
 
@@ -566,4 +582,7 @@ myList.addToBack(5).addToBack(4).addToBack(3).addToBack(2).addToBack(1);
 
 myList.head.next.next.next.next.next = myList.head.next.next;
 
-myList.printList();
+console.log(myList.hasLoop());
+
+
+// myList.printList();
