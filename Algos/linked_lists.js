@@ -30,8 +30,8 @@ class SLList {
         let runner = this.head;
         while(runner.next != null) {
             if(runner.next.value < runner.value){
-                console.log("")
-                return false;
+                console.log("This list is not sorted.")
+                return this;
             }
             runner = runner.next;
         }
@@ -55,8 +55,6 @@ class SLList {
         }
 
         return this;
-        
-
     }
 
     // Write a method that will remove all negative numbers from a singly linked list.
