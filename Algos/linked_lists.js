@@ -22,13 +22,89 @@ class SLList {
 
     // EXAMPLE: 1 -> 1 -> 2 -> 3 -> 3 -> 4 -> 5 -> would return 1 -> 2 -> 3 -> 4 -> 5 ->
     removeDupesSorted() {
+        // Edge case: Check if empty or if the list is only 1 element long.
+        if(this.isEmpty() || this.head.next == null){
+            return this;
+        }
+        // Edge case: If it's not sorted, quit
+        let runner = this.head;
+        while(runner.next != null) {
+            if(runner.next.value < runner.value){
+                console.log("")
+                return false;
+            }
+            runner = runner.next;
+        }
+        // To remove a node, we'll need to keep track of previous nodes.
+        runner = this.head.next;
+        let walker = this.head;
+        while(runner != null) {
+            // If our walker and runner have the same value, 
+            // reassign walker.next to runner.next, and move runner.
+            // We don't move walker also, because there's a possibility that
+            // there are more than 2 consecutive nodes with the same value.
+            if(walker.value == runner.value){
+                walker.next = runner.next;
+                runner = runner.next;
+            } 
+            // Otherwise, we move both walker and runner down 1.
+            else {
+                walker = runner;
+                runner = runner.next;
+            }
+        }
+
+        return this;
+        
 
     }
 
     // Write a method that will remove all negative numbers from a singly linked list.
     // Pretty self explanatory.
     removeNegatives() {
+        // Edge cases: If the list is empty 
+        if(this.isEmpty()){
+            return this;
+        }
+        // Edge case: If the list is only 1 element and it's not negative
+        else if(this.head.next == null && this.head.value > 0) {
+            return this;
+        }
+        
+        // Edge case: List starts with a negative value
 
+        // We simply want to move the head down the line until it's not a negative node.
+        while(!this.isEmpty() && this.head.value < 0){
+            this.head = this.head.next;
+        }
+        // If, after removing all negative values from the front, the list is empty,
+        // we're done
+        if(this.isEmpty()){
+            console.log("Looks like there were ONLY negative values.");
+            return this;
+        }
+
+        // Otherwise, let's start a walker and runner.
+        let walker = this.head;
+        let runner = this.head.next;
+        // Until we finish touching every element of the list
+        while(runner != null) {
+            // If the runner's value is negative
+            if(runner.value < 0) {
+                // Reassign walker.next to runner.next, and move runner.
+                // Similar to the previous method, we do not want to move walker in
+                // case there are consecutive negative values.
+                walker.next = runner.next;
+                runner = runner.next;
+            }
+            // Otherwise, move them both down the line.
+            else {
+                walker.next = runner;
+                runner = runner.next;
+            }
+        }
+        
+        return this;
     }
 
     // Write a method that will return a boolean based on whether
@@ -591,11 +667,16 @@ class QueueStack {
 
 let myList = new SLList();
 
-myList.addToBack(5).addToBack(4).addToBack(3).addToBack(2).addToBack(1);
+myList.addToBack(-1).addToBack(1).addToBack(1).addToBack(2).addToBack(4).addToBack(4).addToBack(7).addToBack(7);
 
-myList.head.next.next.next.next.next = myList.head.next.next;
+myList.printList();
+myList.removeDupesSorted().printList();
 
-console.log(myList.hasLoop());
+myList.removeNegatives().printList();
 
 
+let nonolist = new SLList();
+nonolist.addToBack(-1).addToBack(-3).addToBack(-8);
+nonolist.printList();
+nonolist.removeNegatives();
 // myList.printList();
