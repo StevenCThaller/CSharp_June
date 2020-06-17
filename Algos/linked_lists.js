@@ -18,6 +18,19 @@ class SLList {
         this.head = null;
     }
 
+    // Write a method that will remove duplicate values from a sorted singly linked list.
+
+    // EXAMPLE: 1 -> 1 -> 2 -> 3 -> 3 -> 4 -> 5 -> would return 1 -> 2 -> 3 -> 4 -> 5 ->
+    removeDupesSorted() {
+
+    }
+
+    // Write a method that will remove all negative numbers from a singly linked list.
+    // Pretty self explanatory.
+    removeNegatives() {
+
+    }
+
     // Write a method that will return a boolean based on whether
     // or not the singly linked list has a loop.
     
