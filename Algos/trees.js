@@ -13,22 +13,57 @@ class BSTree {
 
     // I don't think I need to say anything for this one lol
     isEmpty(){
-
+        return this.root == null;
     }
 
     // Write a method that will insert a new node into the BST
-    insert(value){
+    insert(value, runner = this.root){
+        if(runner == null){
+            this.root = new BSNode(value);
+            return this;
+        }
 
+        if(value >= runner.value) {
+            if(runner.right == null){
+                runner.right = new BSNode(value);
+                return this;
+            }
+            return this.insert(value, runner.right);
+        }
+        else {
+            if(runner.left == null) {
+                runner.left = new BSNode(value);
+                return this;
+            }
+            return this.insert(value, runner.left);
+        }
     }
 
     // Write a method that will return the largest element in the BST
     max(){
-
+        if(this.isEmpty()){
+            console.log("Tree is empty!");
+            return null;
+        }
+        let runner = this.root;
+        while(runner.right != null){
+            runner = runner.right;
+        }
+        return runner.value;
     }
 
     // Write a method that will return the smallest element in the BST
     min(){
+        if(this.isEmpty()){
+            console.log("Tree is empty!");
+            return null;
+        }
 
+        let runner = this.root;
+        while(runner.left != null){
+            runner = runner.left;
+        }
+        return runner.value;
     }
 
     printTree(){
@@ -51,3 +86,4 @@ class BSTree {
         this.printHelper(toPrint, runner.left);
     }
 }
+
