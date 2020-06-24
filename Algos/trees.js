@@ -30,4 +30,24 @@ class BSTree {
     min(){
 
     }
+
+    printTree(){
+        if(this.root == null) {
+            console.log("This tree is empty.");
+            return this;
+        }
+
+        this.printHelper();
+    }
+
+    printHelper(toPrint = "", runner = this.root) {
+        if(runner == null) {
+            return this;
+        }
+
+        toPrint += "\t";
+        this.printHelper(toPrint, runner.right);
+        console.log(`${toPrint}${runner.value}`);
+        this.printHelper(toPrint, runner.left);
+    }
 }
