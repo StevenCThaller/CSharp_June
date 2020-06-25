@@ -11,6 +11,14 @@ class BSTree {
         this.root = null;
     }
 
+    // Write a method that will return a boolean based on whether
+    // or not the tree contains a node with the given value
+
+    // Try this both with and without recursion if you can.
+    contains(value) {
+
+    }
+
     // I don't think I need to say anything for this one lol
     isEmpty(){
         return this.root == null;
